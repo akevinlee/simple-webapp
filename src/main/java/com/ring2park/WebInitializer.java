@@ -1,4 +1,4 @@
-package com.srnademo;
+package com.ring2park;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;

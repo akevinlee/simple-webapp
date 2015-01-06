@@ -1,4 +1,4 @@
-package com.srnademo;
+package com.ring2park;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
