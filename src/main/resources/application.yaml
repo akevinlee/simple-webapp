@@ -1,0 +1,91 @@
+spring:
+  profiles.active: sql_server,default
+
+---
+
+spring:
+  profiles: default
+app:
+  name: SimpleWebApp (default)
+  description: SimpleWebApp is a Spring Boot application
+spring.datasource:
+  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
+  username: ring2park_int
+  password: ring2park_int
+
+---
+
+spring:
+  profiles: uat
+app:
+  name: SimpleWebApp (UAT)
+spring.datasource:
+  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_uat
+  username: ring2park_uat
+  password: ring2park_uat
+spring.jpa:
+  show-sql: false
+spring.jpa.hibernate:
+  ddl-auto: verify
+spring.jpa:
+  show-sql: false
+spring.jpa.hibernate:
+  ddl-auto: verify
+
+---
+
+spring:
+  profiles: oat
+app:
+  name: SimpleWebApp (OAT)
+spring.datasource:
+  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_oat
+  username: ring2park_oat
+  password: ring2park_oat
+spring.jpa:
+  show-sql: false
+spring.jpa.hibernate:
+  ddl-auto: verify
+
+---
+
+spring:
+  profiles: production
+app:
+  name: SimpleWebApp (Production)
+spring.datasource:
+  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_prod
+  username: ring2park_prod
+  password: ring2park_prod
+spring.jpa:
+  show-sql: false
+spring.jpa.hibernate:
+  ddl-auto: verify
+
+---
+
+spring:
+  profiles: mysql
+spring.datasource:
+  driverClassName: com.mysql.jdbc.Driver
+spring.jpa:
+  database: MYSQL
+  show-sql: true
+spring.jpa.hibernate:
+  ddl-auto: update
+  dialect: org.hibernate.dialect.MySQLDialect
+  naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+
+---
+
+spring:
+  profiles: sql_server
+spring.datasource:
+  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+spring.jpa:
+  database: SQL_SERVER
+  show-sql: true
+spring.jpa.hibernate:
+  ddl-auto: update
+  dialect: org.hibernate.dialect.SQLServerDialect
+  naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
