@@ -1,13 +1,15 @@
 spring:
-  profiles.active: sql_server,default
+  profiles.active: sql_server
+app:
+  name: SimpleWebApp
+  description: SimpleWebApp is a Spring Boot application
 
 ---
 
 spring:
-  profiles: default
+  profiles: integration
 app:
-  name: SimpleWebApp (default)
-  description: SimpleWebApp is a Spring Boot application
+  name: SimpleWebApp (integration)
 spring.datasource:
   url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
   username: ring2park_int
@@ -30,7 +32,7 @@ spring.jpa.hibernate:
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
-  ddl-auto: verify
+  ddl-auto: validate
 
 ---
 
@@ -45,7 +47,7 @@ spring.datasource:
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
-  ddl-auto: verify
+  ddl-auto: validate
 
 ---
 
@@ -60,14 +62,19 @@ spring.datasource:
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
-  ddl-auto: verify
+  ddl-auto: validate
 
 ---
 
 spring:
   profiles: mysql
+app:
+  name: SimpleWebApp (MySQL)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql://127.0.0.1:3306/ring2park_int
+  username: ring2park_int
+  password: ring2park_int
 spring.jpa:
   database: MYSQL
   show-sql: true
@@ -80,8 +87,13 @@ spring.jpa.hibernate:
 
 spring:
   profiles: sql_server
+app:
+    name: SimpleWebApp (SQL Server)
 spring.datasource:
   driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
+  username: ring2park_int
+  password: ring2park_int
 spring.jpa:
   database: SQL_SERVER
   show-sql: true
