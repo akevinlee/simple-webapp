@@ -1,18 +1,8 @@
-@font-face{
-    font-family:FontAwesome;
-    src:url(fonts/fontawesome-webfont.eot?#iefix) format('eot'),
-	url(fonts/fontawesome-webfont.woff) format('woff'),
-	url(fonts/fontawesome-webfont.ttf) format('truetype'),
-	url(fonts/fontawesome-webfont.svg#FontAwesome) format('svg');
-    font-weight:400;font-style:normal;}
-    
 body
 {
 	width:80%;
 	margin-left:auto;
 	margin-right:auto;
-	font-family: 'Open Sans', sans-serif;
-	font-size:13px;
 }
 
 .showpanel
@@ -25,7 +15,6 @@ body
 	border-radius: 2px;
 	
 }
-
 .showpanel .panel-heading
 {
 	background: #39393d;
@@ -51,7 +40,7 @@ body
 .panel-title
 {
 	font-size: 14px;
-        line-height: 20px;
+	line-height: 20px;
 }
 .panel-heading-controls
 {
@@ -123,56 +112,6 @@ body
 	margin-left: 10%;
 	margin-right: 10%;
 }
-.priority
-{
-	right: 20px;
-	display: block;
-	position: relative;
-	margin: 0;
-	font-size: 11px;
-	line-height: 20px;
-	text-shadow: 0 -1px 0 rgba(0,0,0,.2);
-	padding: 0 6px;
-	float: right!important;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: baseline;
-	border-radius: .25em;
-}
-.priority-red
-{
-	color: #fff;
-	background: maroon;
-}
-.priority-yellow
-{
-	color: #fff;
-	background: #f4b04f;
-}
-.priority-green
-{
-	color: #fff;
-	background: green;
-}
-
-.location .action-checkbox
-{
-	float: left;
-	width: 20px;
-	display: block;
-	line-height: 21px;
-}
-.location .action-checkbox .single
-{
-	display: inline-block;
-	margin: 0;
-	position: relative;
-	vertical-align: middle;
-	top: -1px;
-	width: 15px;
-	height: 15px;
-	font-weight: 400!important;
-}
 .location
 {
 	padding: 8px 0;
@@ -230,24 +169,6 @@ body
 	content: " ";
 	display: table;
 }
-.action-status
-{
-	color:orangered;
-	padding-left:20px;
-	cursor:context-menu;
-	
-}
-input[type=checkbox] { display:none; } /* to hide the checkbox itself */
-input[type=checkbox] + label:before {
-  font-family: FontAwesome;
-  display: inline-block;
-}
-
-input[type=checkbox] + label:before { content: "\f096"; } /* unchecked icon */
-input[type=checkbox] + label:before { letter-spacing: 10px; } /* space between checkbox and label */
-
-input[type=checkbox]:checked + label:before { content: "\f046";color:turquoise; } /* checked icon */
-input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow space for check mark */
 
 .fadein,
 .fadeout {
@@ -256,9 +177,6 @@ input[type=checkbox]:checked + label:before { letter-spacing: 5px; } /* allow sp
   -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
   transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
 }
-
-
-
 
 .fadein.ng-hide-remove,
 .fadeout.ng-hide-add.ng-hide-add-active {
