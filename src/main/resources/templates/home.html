@@ -1,7 +1,12 @@
 <!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org" ng-app="locationManagerApp">
+<html xmlns:th="http://www.thymeleaf.org" ng-app="locationManagerApp" lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+    <link rel="icon" href="./images/favicon.ico"/>
     <title th:text="${name}"/>
     <link href='./css/bootstrap.min.css' rel="stylesheet" type="text/css" />
     <link href='./css/style.css' rel="stylesheet" type="text/css" />
@@ -12,9 +17,9 @@
 </head>
 <body>
 
-<div ng-controller="locationManagerController">
-    <h2 class="page-title" th:text="${name}"/>
-    <h4 class="page-title" th:text="${description}"/>
+<div class="container" ng-controller="locationManagerController">
+    <h2 th:text="${name}"/>
+    <h4 th:text="${description}"/>
     <div id="location-panel" class="fadein fadeout showpanel panel"  ng-show="toggle">
         <div class="panel-heading">
             <span class="panel-title"><span class="glyphicon glyphicon-road" aria-hidden="true"></span>Parking Locations</span>
@@ -89,6 +94,11 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <p>&copy; Company 2015</p>
+    </footer>
+
 </div>
 </body>
 </html>
