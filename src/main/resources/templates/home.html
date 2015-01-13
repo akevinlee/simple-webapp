@@ -59,45 +59,61 @@
         </div>
         <div class="panel-body">
             <div class="location" >
-                <table class="add-location">
-                    <tr>
-                        <td>Name:</td>
-                        <td><input type="text" ng-model="locationName"/></td>
-                    </tr>
-                    <tr>
-                        <td>Address:</td>
-                        <td><input type="text" ng-model="locationAddress"/></td>
-                    </tr>
-                    <tr>
-                        <td>City:</td>
-                        <td><input type="text" ng-model="locationCity"/></td>
-                    </tr>
-                    <tr>
-                        <td>Zip/Postal Code:</td>
-                        <td><input type="text" ng-model="locationZip"/></td>
-                    </tr>
-                    <tr>
-                        <td>State:</td>
-                        <td><input type="text" ng-model="locationState"/></td>
-                    </tr>
-                    <tr>
-                        <td>Country:</td>
-                        <td><input type="text" ng-model="locationCountry"/></td>
-                    </tr>
-                    <tr>
-                        <td>Price:</td>
-                        <td><input type="text" ng-model="locationPrice"/></td>
-                    </tr>
-                    <tr>
-                        <td>Currency:</td>
-                        <td><input type="text" ng-model="locationCurrency"/></td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button ng-click="saveLocation(locationUri)" class="btn-panel-big">Save Location</button>
-                        </td>
-                    </tr>
-                </table>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="locationName" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationName" ng-model="locationName"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationAddress" class="col-sm-2 control-label">Address</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationAddress" ng-model="locationAddress"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationCity" class="col-sm-2 control-label">City</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationCity" ng-model="locationCity"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationZip" class="col-sm-2 control-label">Zip/Postal Code</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationZip" ng-model="locationZip"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationZip" class="col-sm-2 control-label">State/County</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationState" ng-model="locationState"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationCountry" class="col-sm-2 control-label">Country</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationCountry" ng-model="locationCountry"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationPrice" class="col-sm-2 control-label">Price</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationPrice" ng-model="locationPrice"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="locationCurrency" class="col-sm-2 control-label">Currenct</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="locationCurrency" ng-model="locationCurrency"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button class="btn btn-default" ng-click="saveLocation(locationUri)">Save</button>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
