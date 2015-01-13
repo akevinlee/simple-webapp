@@ -2,7 +2,7 @@ var locationManagerModule = angular.module('locationManagerApp', ['ngAnimate']);
 
 locationManagerModule.controller('locationManagerController', function ($scope,$http,$location) {
 
-    var urlBase=getBaseUrl(); // TODO: replace with $location
+    var urlBase=getBaseUrl() + "/simple-webapp";
     $scope.toggle=true;
     $http.defaults.headers.post["Content-Type"] = "application/json";
 

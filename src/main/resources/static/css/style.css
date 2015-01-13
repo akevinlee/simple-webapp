@@ -1,4 +1,4 @@
-body
+/*body
 {
 	width:80%;
 	margin-left:auto;
@@ -169,7 +169,7 @@ body
 	content: " ";
 	display: table;
 }
-
+*/
 .fadein,
 .fadeout {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
@@ -191,7 +191,7 @@ body
   display: block !important;
   height:0px;
 }
-
+/*
 .button-red {
 	background-color: crimson;
 	background-image: -webkit-linear-gradient(top, crimson, crimson);
@@ -219,5 +219,5 @@ body
 	width:50%;
 	margin-left:25%;
 	margin-right:25%
-}
+}*/
 
