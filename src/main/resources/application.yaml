@@ -9,7 +9,7 @@ app:
 spring:
   profiles: integration
 app:
-  name: SimpleWebApp (14/01/2015)
+  name: SimpleWebApp (15/01/2015)
 spring.datasource:
   url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
   username: ring2park_int
