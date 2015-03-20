@@ -4,7 +4,7 @@
 	margin-left:auto;
 	margin-right:auto;
 }
-
+*/
 .showpanel
 {
 	width:50%;
@@ -169,7 +169,7 @@
 	content: " ";
 	display: table;
 }
-*/
+
 .fadein,
 .fadeout {
   -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
