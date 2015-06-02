@@ -1,5 +1,5 @@
 spring:
-  profiles.active: sql_server
+  profiles.active: mysql, integration
 app:
   name: SimpleWebApp
   description: SimpleWebApp is a Spring Boot application
@@ -9,11 +9,20 @@ app:
 spring:
   profiles: integration
 app:
-  name: SimpleWebApp (15/01/2015)
+  name: SimpleWebApp
 spring.datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
-  username: ring2park_int
-  password: ring2park_int
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql:/localhost:3306/simpledb_int
+  username: simpledb_int
+  password: simpledb_int
+spring.jpa:
+  show-sql: true
+spring.jpa.hibernate:
+  ddl-auto: verify
+spring.jpa:
+  show-sql: true
+spring.jpa.hibernate:
+  ddl-auto: validate
 
 ---
 
@@ -22,9 +31,10 @@ spring:
 app:
   name: SimpleWebApp (UAT)
 spring.datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_uat
-  username: ring2park_uat
-  password: ring2park_uat
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql:/localhost:3306/simpledb_uat
+  username: simpledb_uat
+  password: simpledb_uat
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
@@ -37,13 +47,14 @@ spring.jpa.hibernate:
 ---
 
 spring:
-  profiles: oat
+  profiles: ppro
 app:
   name: SimpleWebApp (OAT)
 spring.datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_oat
-  username: ring2park_oat
-  password: ring2park_oat
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql:/localhost:3306/simpledb_ppro
+  username: simpledb_ppro
+  password: simpledb_ppro
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
@@ -56,9 +67,10 @@ spring:
 app:
   name: SimpleWebApp (Production)
 spring.datasource:
-  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_prod
-  username: ring2park_prod
-  password: ring2park_prod
+  driverClassName: com.mysql.jdbc.Driver
+  url: jdbc:mysql:/localhost:3306/simpledb_prod
+  username: simpledb_prod
+  password: simpledb_prod
 spring.jpa:
   show-sql: false
 spring.jpa.hibernate:
@@ -72,32 +84,13 @@ app:
   name: SimpleWebApp (MySQL)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://127.0.0.1:3306/ring2park_int
-  username: ring2park_int
-  password: ring2park_int
+  url: jdbc:mysql://localhost:3306/simpledb_int
+  username: simpledb_int
+  password: simpledb_int
 spring.jpa:
   database: MYSQL
   show-sql: true
 spring.jpa.hibernate:
   ddl-auto: update
   dialect: org.hibernate.dialect.MySQLDialect
-  naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
-
----
-
-spring:
-  profiles: sql_server
-app:
-    name: SimpleWebApp (SQL Server)
-spring.datasource:
-  driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
-  url: jdbc:sqlserver://localhost:1433;databaseName=ring2park_int
-  username: ring2park_int
-  password: ring2park_int
-spring.jpa:
-  database: SQL_SERVER
-  show-sql: true
-spring.jpa.hibernate:
-  ddl-auto: update
-  dialect: org.hibernate.dialect.SQLServerDialect
   naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
