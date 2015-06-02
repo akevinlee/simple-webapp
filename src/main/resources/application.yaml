@@ -12,7 +12,7 @@ app:
   name: SimpleWebApp
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql:/localhost:3306/simpledb_int
+  url: jdbc:mysql://localhost:3306/simpledb_int
   username: simpledb_int
   password: simpledb_int
 spring.jpa:
@@ -32,7 +32,7 @@ app:
   name: SimpleWebApp (UAT)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql:/localhost:3306/simpledb_uat
+  url: jdbc:mysql://localhost:3306/simpledb_uat
   username: simpledb_uat
   password: simpledb_uat
 spring.jpa:
@@ -52,7 +52,7 @@ app:
   name: SimpleWebApp (OAT)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql:/localhost:3306/simpledb_ppro
+  url: jdbc:mysql://localhost:3306/simpledb_ppro
   username: simpledb_ppro
   password: simpledb_ppro
 spring.jpa:
@@ -68,7 +68,7 @@ app:
   name: SimpleWebApp (Production)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql:/localhost:3306/simpledb_prod
+  url: jdbc:mysql://localhost:3306/simpledb_prod
   username: simpledb_prod
   password: simpledb_prod
 spring.jpa:
