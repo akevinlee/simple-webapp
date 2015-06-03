@@ -12,7 +12,7 @@ app:
   name: SimpleWebApp
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/simpledb_int
+  url: jdbc:mysql://serenadeploy.cloudapp.net:3306/simpledb_int
   username: simpledb_int
   password: simpledb_int
 spring.jpa:
@@ -32,7 +32,7 @@ app:
   name: SimpleWebApp (UAT)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/simpledb_uat
+  url: jdbc:mysql://serenadeploy.cloudapp.net:3306/simpledb_uat
   username: simpledb_uat
   password: simpledb_uat
 spring.jpa:
@@ -49,10 +49,10 @@ spring.jpa.hibernate:
 spring:
   profiles: ppro
 app:
-  name: SimpleWebApp (OAT)
+  name: SimpleWebApp (Pre Production)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/simpledb_ppro
+  url: jdbc:mysql://serenadeploy.cloudapp.net:3306/simpledb_ppro
   username: simpledb_ppro
   password: simpledb_ppro
 spring.jpa:
@@ -68,7 +68,7 @@ app:
   name: SimpleWebApp (Production)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/simpledb_prod
+  url: jdbc:mysql://serenadeploy.cloudapp.net:3306/simpledb_prod
   username: simpledb_prod
   password: simpledb_prod
 spring.jpa:
@@ -84,13 +84,13 @@ app:
   name: SimpleWebApp (MySQL)
 spring.datasource:
   driverClassName: com.mysql.jdbc.Driver
-  url: jdbc:mysql://localhost:3306/simpledb_int
-  username: simpledb_int
-  password: simpledb_int
+  url: jdbc:mysql://localhost:3306/simpledb_dev
+  username: simpledb_dev
+  password: simpledb_dev
 spring.jpa:
   database: MYSQL
   show-sql: true
 spring.jpa.hibernate:
   ddl-auto: update
   dialect: org.hibernate.dialect.MySQLDialect
-  naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+  naming_strategy: org.hibernate.cfg.EJB3NamingStrategy

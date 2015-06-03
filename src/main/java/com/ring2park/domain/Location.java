@@ -15,13 +15,13 @@ import org.springframework.format.annotation.NumberFormat.Style;
  * @author Kevin A. Lee
  */
 @Entity
-@Table(name = "location")
+@Table(name = "LOCATION")
 public class Location implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "location_id")
-	private Long id;
+	private Integer id;
 
 	@NotEmpty(message = "A location name must be provided.")
 	private String name;
@@ -52,11 +52,11 @@ public class Location implements Serializable {
 		this.currency = "USD";
 	}
 	
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

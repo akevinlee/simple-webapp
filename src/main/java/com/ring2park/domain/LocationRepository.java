@@ -8,7 +8,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
-public interface LocationRepository extends CrudRepository<Location, Long> {
+public interface LocationRepository extends CrudRepository<Location, Integer> {
 
     List<Location> findByCountry(@Param("country") String country);
     List<Location> findByCity(@Param("city") String city);
