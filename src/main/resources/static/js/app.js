@@ -7,7 +7,7 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
     $http.defaults.headers.post["Content-Type"] = "application/json";
 
     function findAllLocations() {
-        //get all locations
+        // get all locations
         $http.get(urlBase + '/locations').
             success(function (data) {
                 if (data._embedded != undefined) {
@@ -30,10 +30,10 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
 
     findAllLocations();
 
-    //load a location
+    // load a specific location
     $scope.loadLocation = function loadLocation(locationUri) {
         if (locationUri) {
-            //get specific location
+            // get specific location
             $http.get(locationUri).
                 success(function (data) {
                     if (data.name != undefined) {
@@ -64,11 +64,23 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
         $scope.toggle = !$scope.toggle;
     };
 
-    //add or edit a new location
+    // delete a location
+    $scope.deleteLocation = function deleteLocation(locationUri) {
+        if (locationUri) {
+            // delete specific location
+            $http.delete(locationUri).
+                success(function (success, data) {
+                    // reload
+                    findAllLocations();
+                });
+        };
+    };
+
+    // add or edit a new location
     $scope.saveLocation = function saveLocation(locationUri) {
         if($scope.locationName=="" || $scope.locationAddress=="" || $scope.locationCity == "" || $scope.locationZip == ""
             || $scope.locationState=="" || $scope.locationCountry=="" || $scope.locationPrice=="" || $scope.locationCurrency==""){
-            alert("Insufficient Data! Please enter values for all fields");
+            alert("Insufficient data! Please enter values for all fields");
         }
         else{
             if (locationUri) {
@@ -90,20 +102,20 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
             } else {
                 // add a new location
                 $http.post(urlBase + '/locations', {
-                    locationName: $scope.locationName,
-                    locationAddress: $scope.locationAddress,
-                    locationCity: $scope.locationCity,
-                    locationZip: $scope.locationZip,
-                    locationState: $scope.locationState,
-                    locationCountry: $scope.locationCountry,
-                    locationPrice: $scope.locationPrice,
-                    locationCurrency: $scope.locationCurrency
+                    name: $scope.locationName,
+                    address: $scope.locationAddress,
+                    city: $scope.locationCity,
+                    zip: $scope.locationZip,
+                    state: $scope.locationState,
+                    country: $scope.locationCountry,
+                    price: $scope.locationPrice,
+                    currency: $scope.locationCurrency
                 }).
                     success(function (data, status, headers) {
                         alert("Location added");
                         var newLocationUri = headers()["location"];
                         console.log("Might be good to GET " + newLocationUri + " and append the location.");
-                        // Refetching EVERYTHING every time can get expensive over time
+                        // Re-fetching EVERYTHING every time can get expensive over time
                         // Better solution would be to $http.get(headers()["location"]) and add it to the list
                         findAllLocations();
                     });
@@ -113,7 +125,7 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
 
 });
 
-//Angularjs Directive for confirm dialog box
+// Angularjs Directive for confirm dialog box
 locationManagerModule.directive('ngConfirmClick', [
     function(){
         return {
