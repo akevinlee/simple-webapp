@@ -10,8 +10,10 @@
     <title th:text="${name}"/>
     <link href='./css/bootstrap.min.css' rel="stylesheet" type="text/css" />
     <link href='./css/style.css' rel="stylesheet" type="text/css" />
-    <script data-require="angular.js@*" data-semver="1.3.8" src="./js/angular.min.js"></script>
-    <script data-require="angular-animate@*" data-semver="1.3.8" src="./js/angular-animate.min.js"></script>
+    <script src="./js/angular.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./js/angular-animate.min.js"></script>
+    <script src="./js/angular-messages.min.js"></script>
     <script type="text/javascript" src ="./js/jquery.min.js"/>
     <script type="text/javascript" src ="./js/bootstrap.min.js"/>
     <script type="text/javascript" src="./js/app.js"></script>
@@ -22,7 +24,7 @@
 <div class="container" ng-controller="locationManagerController">
     <h2 class="text-center" th:text="${name}"/>
     <h4 class="text-center" th:text="${description}"/>
-    <div id="location-panel" class="panel panel-default fadein fadeout" ng-show="toggle">
+    <div id="location-panel" class="panel panel-default" ng-show="toggle">
         <div class="panel-heading">
             <span class="panel-title">
                 <button ng-click="loadLocation()" class="btn btn-default pull-right">Add New Location</button>
@@ -50,7 +52,7 @@
             </table>
         </div>
     </div>
-    <div id="add-location-panel" class="panel panel-default fadein fadeout" ng-hide="toggle">
+    <div id="add-location-panel" class="panel panel-default" ng-hide="toggle">
         <div class="panel-heading">
             <span class="panel-title">
                 <button ng-click="toggle = !toggle" class="btn btn-default pull-right">Show All Locations</button>
@@ -59,58 +61,106 @@
         </div>
         <div class="panel-body">
             <div class="location" >
-                <form class="form-horizontal">
-                    <div class="form-group">
+                <form name="locationForm" class="form-horizontal" novalidate="true">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationName.$invalid &amp;&amp; locationForm.locationName.$dirty }" >
                         <label for="locationName" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationName" ng-model="locationName"/>
+                            <input type="text" class="form-control" id="locationName" name="locationName" ng-model="locationName"
+                                   ng-minlength="5" ng-maxlength="40" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationName.$error" ng-show="locationForm.locationName.$touched">
+                                <p ng-message="minlength">Name is too short.</p>
+                                <p ng-message="maxlength">Name is too long.</p>
+                                <p ng-message="required">A Name is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.Address.$invalid &amp;&amp; locationForm.locationAddress.$dirty }">
                         <label for="locationAddress" class="col-sm-2 control-label">Address</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationAddress" ng-model="locationAddress"/>
+                            <input type="text" class="form-control" id="locationAddress" name="locationAddress" ng-model="locationAddress"
+                                   ng-minlength="5" ng-maxlength="40" required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationAddress.$error" ng-show="locationForm.locationAddress.$touched">
+                                <p ng-message="minlength">Address is too short.</p>
+                                <p ng-message="maxlength">Address is too long.</p>
+                                <p ng-message="required">An Address is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationCity.$invalid &amp;&amp; locationForm.locationCity.$dirty }">
                         <label for="locationCity" class="col-sm-2 control-label">City</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationCity" ng-model="locationCity"/>
+                            <input type="text" class="form-control" id="locationCity" name="locationCity" ng-model="locationCity"
+                                   ng-minlength="5" ng-maxlength="40" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationCity.$error" ng-show="locationForm.locationCity.$touched">
+                                <p ng-message="minlength">City is too short.</p>
+                                <p ng-message="maxlength">City is too long.</p>
+                                <p ng-message="required">A City is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationZip.$invalid &amp;&amp; locationForm.locationZip.$dirty }">
                         <label for="locationZip" class="col-sm-2 control-label">Zip/Postal Code</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationZip" ng-model="locationZip"/>
+                            <input type="text" class="form-control" id="locationZip" name="locationZip" ng-model="locationZip"
+                                   ng-minlength="5" ng-maxlength="10" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationZip.$error" ng-show="locationForm.locationZip.$touched">
+                                <p ng-message="minlength">Zip/Postal Code is too short.</p>
+                                <p ng-message="maxlength">Zip/Postal Code is too long.</p>
+                                <p ng-message="required">A Zip/Postal Code is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationState.$invalid &amp;&amp; locationForm.locationState.$dirty }">
                         <label for="locationZip" class="col-sm-2 control-label">State/County</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationState" ng-model="locationState"/>
+                            <input type="text" class="form-control" id="locationState" name="locationState" ng-model="locationState"
+                                   ng-minlength="5" ng-maxlength="10" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationState.$error" ng-show="locationForm.locationState.$touched">
+                                <p ng-message="minlength">State/County is too short.</p>
+                                <p ng-message="maxlength">State/County is too long.</p>
+                                <p ng-message="required">A State/County is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationCountry.$invalid &amp;&amp; locationForm.locationCountry.$dirty }">
                         <label for="locationCountry" class="col-sm-2 control-label">Country</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationCountry" ng-model="locationCountry"/>
+                            <input type="text" class="form-control" id="locationCountry" name="locationCountry" ng-model="locationCountry"
+                                   ng-minlength="2" ng-maxlength="40" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationCountry.$error" ng-show="locationForm.locationCountry.$touched">
+                                <p ng-message="minlength">Country is too short.</p>
+                                <p ng-message="maxlength">Country is too long.</p>
+                                <p ng-message="required">A Country is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationPrice.$invalid &amp;&amp; locationForm.locationPrice.$dirty }">
                         <label for="locationPrice" class="col-sm-2 control-label">Price</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationPrice" ng-model="locationPrice"/>
+                            <input type="text" class="form-control" id="locationPrice" name="locationPrice" ng-model="locationPrice"
+                                   ng-pattern="/^[0-9]{1,7}$/" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationPrice.$error" ng-show="locationForm.locationPrice.$touched">
+                                <p ng-message="pattern">Price is not a valid number.</p>
+                                <p ng-message="required">A Price is required.</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" ng-class="{ 'has-error': locationForm.locationCurrency.$invalid &amp;&amp; locationForm.locationCurrency.$dirty }">
                         <label for="locationCurrency" class="col-sm-2 control-label">Currency</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="locationCurrency" ng-model="locationCurrency"/>
+                            <input type="text" class="form-control" id="locationCurrency" name="locationCurrency" ng-model="locationCurrency"
+                                   ng-minlength="1" ng-maxlength="3" ng-required="true"/>
+                            <div class="help-block" ng-messages="locationForm.locationCurrency.$error" ng-show="locationForm.locationCurrency.$touched">
+                                <p ng-message="minlength">Currency is too short.</p>
+                                <p ng-message="maxlength">Currency is too long.</p>
+                                <p ng-message="required">A Currency is required.</p>
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button class="btn btn-default" ng-click="saveLocation(locationUri)">Save</button>
+                            <button type="submit" class="btn btn-default" ng-disabled="locationForm.$invalid"
+                                    ng-click="saveLocation(locationUri,locationForm.$valid)">Submit</button>
                         </div>
                     </div>
                 </form>
@@ -118,9 +168,9 @@
         </div>
     </div>
 
-    <!--footer class="footer">
+    <footer class="footer">
         <p>&copy; Company 2015</p>
-    </footer-->
+    </footer>
 
 </div>
 </body>

@@ -1,6 +1,9 @@
-var locationManagerModule = angular.module('locationManagerApp', ['ngAnimate']);
+var locationManagerApp = angular.module('locationManagerApp', [
+    'ngAnimate',
+    'ngMessages'
+]);
 
-locationManagerModule.controller('locationManagerController', function ($scope,$http,$location) {
+locationManagerApp.controller('locationManagerController', function ($scope,$http,$location) {
 
     var urlBase=getBaseUrl() + "/simple-webapp";
     $scope.toggle=true;
@@ -77,12 +80,15 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
     };
 
     // add or edit a new location
-    $scope.saveLocation = function saveLocation(locationUri) {
+    $scope.saveLocation = function saveLocation(locationUri,isValid) {
+        if (!isValid) {
+            alert("Form is not valid!");
+            return;
+        }
         if($scope.locationName=="" || $scope.locationAddress=="" || $scope.locationCity == "" || $scope.locationZip == ""
             || $scope.locationState=="" || $scope.locationCountry=="" || $scope.locationPrice=="" || $scope.locationCurrency==""){
             alert("Insufficient data! Please enter values for all fields");
-        }
-        else{
+        } else {
             if (locationUri) {
                 // update a location
                 $http.patch(locationUri, {
@@ -114,7 +120,7 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
                     success(function (data, status, headers) {
                         alert("Location added");
                         var newLocationUri = headers()["location"];
-                        console.log("Might be good to GET " + newLocationUri + " and append the location.");
+                        //console.log("Might be good to GET " + newLocationUri + " and append the location.");
                         // Re-fetching EVERYTHING every time can get expensive over time
                         // Better solution would be to $http.get(headers()["location"]) and add it to the list
                         findAllLocations();
@@ -126,7 +132,7 @@ locationManagerModule.controller('locationManagerController', function ($scope,$
 });
 
 // Angularjs Directive for confirm dialog box
-locationManagerModule.directive('ngConfirmClick', [
+locationManagerApp.directive('ngConfirmClick', [
     function(){
         return {
             link: function (scope, element, attr) {

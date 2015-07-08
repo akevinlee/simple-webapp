@@ -1,35 +1,6 @@
-.showpanel
-{
-	width:50%;
-	margin-right:25%;
-	margin-left:25%;
-	/*background-color:#39393d!important;*/
-	border-color: #e2e2e2;
-	border-radius: 2px;
-	
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    border-top: none !important;
 }
-.showpanel .panel-heading
-{
-	background: #39393d;
-	color: #fff;
-	padding: 10px 15px;	
-}
-.addpanel
-{
-	width:50%;
-	margin-right:25%;
-	margin-left:25%;
-	background-color:crimson!important;
-	border-radius: 2px;
-}
-
-.addpanel .panel-heading
-{
-	background: crimson;
-	color: #fff;
-	padding: 10px 15px;	
-}
-
 .panel-title
 {
 	font-size: 14px;
@@ -45,7 +16,6 @@
 {
 	background-color:#f3818d;
 	color:white;
-	margin-top:0;
 	font-size: 11px;
 	line-height: 12px;
 	padding: 4px 7px;
@@ -78,7 +48,6 @@
 
 .panel .panel-body
 {
-	/*background: beige;*/
 	margin: 0;
 	padding: 20px;
 	
@@ -88,7 +57,7 @@
 	content: " ";
 	display: table;
 }
-.panel .pabel-body .location
+.panel .panel-body .location
 {
 	padding-left: 20px;
 	padding-right: 20px;
@@ -99,17 +68,10 @@
 	content: " ";
 	display: table;
 }
-.add-location
-{
-	width: 80%;
-	margin-left: 10%;
-	margin-right: 10%;
-}
 .location
 {
 	padding: 8px 0;
 	position: relative;
-	/*background: beige;*/
 	margin: 0 -20px;
 	padding-left: 20px;
 	padding-right: 20px;
@@ -118,16 +80,6 @@
 {
 	border-top: 1px solid;
 	border-top-color: #e4e4e4;
-}
-.checkedClass
-{
-	color: #999 !important;
-	text-decoration: line-through !important;
-}
-.uncheckedClass
-{
-	color: darkslategray !important;
-	text-decoration: none !important;
 }
 .location-title
 {
@@ -162,55 +114,3 @@
 	content: " ";
 	display: table;
 }
-
-.fadein,
-.fadeout {
-  -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-  -moz-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-  -o-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-  transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-}
-
-.fadein.ng-hide-remove,
-.fadeout.ng-hide-add.ng-hide-add-active {
-  opacity: 0;
-  display: block !important;
-  height:0px;
-}
-
-.fadeout.ng-hide-add,
-.fadein.ng-hide-remove.ng-hide-remove-active {
-  opacity: 1;
-  display: block !important;
-  height:0px;
-}
-/*
-.button-red {
-	background-color: crimson;
-	background-image: -webkit-linear-gradient(top, crimson, crimson);
-	background-image: -moz-linear-gradient(top,crimson,crimson);
-	color: white;
-	box-shadow: 0 0 5px crimson inset, 0 1px 1px crimson;
-	border: 0px;
-	display: inline-block;
-	font-size: 14px;
-	color: white;
-	text-decoration: none !important;
-	padding: 3px 10px;
-	line-height: inherit;
-	overflow: hidden;
-	position: relative;
-	border-radius: 4px;
-	margin-bottom: 20px;
-}
-
-.page-title
-{
-	font-family:'Trebuchet MS', Helvetica, sans-serif;
-	color:steelblue;
-	text-align:center;
-	width:50%;
-	margin-left:25%;
-	margin-right:25%
-}*/
-
